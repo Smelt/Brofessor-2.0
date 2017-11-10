@@ -1,31 +1,28 @@
+
 import { GymDay } from '../model/gymDay.model';
 import { Exercise } from '../model/exercise.model';
-
+import { Plan } from '../model/plan.model';
 export class RoutineService {
-   
-    routine: GymDay[];
-    routineName: string;
-    constructor(){
 
+    plan: Plan;
+
+    constructor() {
+        this.plan = new Plan("", 0);
     }
 
-    buildRoutine(routineName: string, days: number){
-        this.routine = GymDay[days];
-        this.routineName = routineName;
+    buildRoutine(routineName: string, days: number) {
+        this.plan = new Plan(routineName, days);
     }
 
-    getRoutine(){
-        return this.routine;
+    getRoutine() {
+        return this.plan.routine;
     }
 
-    addExercise(day: number, e: Exercise){
-        this.routine[day].addExercise(e);
+    getExercise(selectedDay: number){
+      return this.plan.routine[selectedDay].getExercise();
     }
 
 
-    deleteExercise(day: number, e: Exercise){
-        this.routine[day].deleteExercise(e);
-    }
 
-    
+
 }

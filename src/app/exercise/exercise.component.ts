@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RoutineService} from '../services/routine.service';
 import { GymDay } from '../model/gymDay.model';
+import { Plan } from '../model/plan.model';
 
 @Component({
   selector: 'app-exercise',
@@ -15,7 +16,7 @@ export class ExerciseComponent implements OnInit {
 
   constructor(private routineService: RoutineService) {
       this.routine = routineService.getRoutine();
-      this.routineName = "";
+      this.routineName = '';
       this.days = 0;
    }
 
@@ -25,8 +26,9 @@ export class ExerciseComponent implements OnInit {
 
   }
 
-  buildWorkOut(){
-    
+  buildWorkOut() {
+    this.routineService.buildRoutine(this.routineName, this.days);
+    this.routine = this.routineService.getRoutine();
   }
 
 
