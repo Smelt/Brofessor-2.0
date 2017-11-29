@@ -7,7 +7,7 @@ export class RoutineService {
     plan: Plan;
 
     constructor() {
-        this.plan = new Plan("", 0);
+        this.plan = new Plan('', 0);
     }
 
     buildRoutine(routineName: string, days: number) {
@@ -18,7 +18,7 @@ export class RoutineService {
         return this.plan.routine;
     }
 
-    getExercise(selectedDay: number){
+    getExercise(selectedDay: number) {
       return this.plan.routine[selectedDay].getExercise();
     }
 

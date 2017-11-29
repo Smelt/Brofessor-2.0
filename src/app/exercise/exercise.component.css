@@ -1,3 +1,8 @@
 .example-full-wdith{
     width: 100%;
 }
+
+.header-blue {
+  background-color: #3f51b5;
+  height: 30%;
+}

@@ -34,7 +34,7 @@ export class GymDay {
     }
   }
 
-  getExercise(){
+  getExercise() {
     return this.workout;
   }
 

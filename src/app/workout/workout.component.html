@@ -1,0 +1,17 @@
+<h1>WE WHERE</h1>
+
+<mat-radio-group  [(ngModel)]="daySelected">
+  <mat-radio-button  *ngFor="let e of exercises" [value]="daySelected">
+    {{e.day}}
+  </mat-radio-button>
+</mat-radio-group>
+
+<div class="row">
+  <mat-card class="col-lg-3" *ngFor="let e of exercises">
+    <mat-card-content>
+      <span>{{e.name}} at {{e.weight}}lbs</span>
+      <br>
+      <span>{{e.sets}} x {{e.reps}}</span>
+    </mat-card-content>
+  </mat-card>
+</div>

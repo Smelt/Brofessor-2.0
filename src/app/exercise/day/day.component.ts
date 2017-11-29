@@ -10,6 +10,11 @@ export class DayComponent implements OnInit {
 
   exercises: Exercise[];
   @Input() daySelected: number;
+  exerciseName: string;
+  exerciseReps: number;
+  exerciseSets: number;
+  exerciseWeight: number;
+  exerciseRest: number;
 
 
   constructor(private routineService: RoutineService) {
@@ -21,8 +26,9 @@ export class DayComponent implements OnInit {
     console.log(this.daySelected);
   }
 
-  addExercise(){
-    let e = new Exercise("bench", 10, 10, 100);
+  addExercise() {
+    const e = new Exercise(this.exerciseName, this.exerciseReps, this.exerciseSets, this.exerciseWeight, this.exerciseSets
+      , this.daySelected);
     this.routineService.plan.addExercise(this.daySelected, e);
   }
 

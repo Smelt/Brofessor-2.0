@@ -1,8 +1,40 @@
 
+<div class="container">
 <div class="row">
-    <md-card class="col-lg-6" *ngFor="let e of exercises">
-        <h1>This is jsut test</h1>
-     </md-card>
+<mat-card class="col-lg-3" *ngFor="let e of exercises">
+  <mat-card-content>
+    <span>{{e.name}} at {{e.weight}}lbs</span>
+    <br>
+    <span>{{e.sets}} x {{e.reps}}</span>
+  </mat-card-content>
+</mat-card>
 </div>
-
+<mat-toolbar>
+  <mat-toolbar-row>
+<mat-form-field class="">
+  <input matInput id="exerciseName" [(ngModel)]="exerciseName" placeholder="Exercise Name">
+</mat-form-field>
+</mat-toolbar-row>
+  <mat-toolbar-row>
+<label id="labelExerciseReps" for="exerciseReps">Reps</label>
+<mat-slider [(ngModel)]="exerciseReps" thumb-label="true" color="primary" id="exerciseReps" min="0" max="15" step="1" value="8"></mat-slider>
+</mat-toolbar-row>
+  <mat-toolbar-row>
+<label id="exerciseRestLabel" for="exerciseRest">Sets</label>
+<mat-slider [(ngModel)]="exerciseRest" thumb-label="true" color="primary" id="exerciseReps" min="0" max="5" step="1" value="2" required></mat-slider>
+</mat-toolbar-row>
+  <mat-toolbar-row>
+    <label id="exerciseSetsLabel" for="exerciseSets">Rest Time</label>
+    <mat-slider [(ngModel)]="exerciseSets" thumb-label="true" color="primary" id="exerciseSets" min="1" max="10" step="1" value="5"
+      required></mat-slider>
+  </mat-toolbar-row>
+  <mat-toolbar-row>
+<mat-form-field>
+      <input matInput type="number" [(ngModel)]="exerciseWeight" name="exerciseWeight" placeholder="Weight" min="0" max="500" required>
+</mat-form-field>
+</mat-toolbar-row>
+<mat-toolbar-row>
 <button btn-primary (click)="addExercise()">Add Exercise</button>
+</mat-toolbar-row>
+</mat-toolbar>
+</div>

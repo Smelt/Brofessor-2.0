@@ -8,19 +8,29 @@ import { LandingComponent } from './landing/landing.component';
 import { ExerciseComponent } from './exercise/exercise.component';
 import { DayComponent } from './exercise/day/day.component';
 import { RoutineService} from './services/routine.service';
+import { Routes, RouterModule } from '@angular/router';
+import { WorkoutComponent } from './workout/workout.component';
+
+const appRoutes: Routes = [
+  { path: 'create', component: ExerciseComponent},
+  { path: '', component: LandingComponent},
+  { path: 'workout', component: WorkoutComponent },
+];
 
 @NgModule({
   declarations: [
     AppComponent,
     LandingComponent,
     ExerciseComponent,
-    DayComponent
+    DayComponent,
+    WorkoutComponent
   ],
   imports: [
     HttpModule,
     FormsModule,
     BrowserModule,
     MaterialModule,
+    RouterModule.forRoot(appRoutes),
   ],
   providers: [RoutineService],
   bootstrap: [AppComponent]
